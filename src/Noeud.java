@@ -22,5 +22,5 @@ public class Noeud {
         this.adj.add(a);
     }
 
-    
+
 }
