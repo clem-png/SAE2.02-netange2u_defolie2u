@@ -1,8 +1,9 @@
+import java.util.*;
 import java.util.ArrayList;
 
 public class Noeud {
     private String nom;
-    private ArrayList<Arc> adj;
+    private List<Arc> adj;
 
     public Noeud(String nom) {
         this.nom = nom;
@@ -20,6 +21,10 @@ public class Noeud {
     public void ajouterArc(String destination, double court){
         Arc a = new Arc(destination, court);
         this.adj.add(a);
+    }
+
+    public List<Arc> getAdj() {
+        return this.adj;
     }
 
 
