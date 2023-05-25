@@ -101,7 +101,7 @@ public class Valeur {
             chemin.set(i, chemin.get(chemin.size()-1-i));
             chemin.set(chemin.size()-1-i, tmp);
         }
-        
+
         return chemin;
     }
 

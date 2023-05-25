@@ -18,7 +18,8 @@ public class main  {
 
         System.out.println(g.toString());
         System.out.println(g.toGraphviz());
-        BellmonFord b = new BellmonFord();
+        //BellmonFord b = new BellmonFord();
+        Dijakstra b = new Dijakstra();
         Valeur v = b.resoudre(g,"A");
         System.out.println(v.toString());
         System.out.println(v.calculerChemin("E"));
