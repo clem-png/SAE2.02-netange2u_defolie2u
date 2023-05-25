@@ -16,20 +16,19 @@ public class GrapheListe implements Graphe{
     }
 
     public GrapheListe(String nomFichier) throws IOException {
-        List<String> lignes = new ArrayList<>();
+
+        ensNom = new ArrayList<String>();
+        ensNoeuds = new ArrayList<Noeud>();
+
         BufferedReader br = new BufferedReader(new FileReader(nomFichier));
         String ligne;
         while ((ligne = br.readLine()) != null) {
-            lignes.add(ligne);
+            String[] tab = ligne.split("\t");
+            if (tab.length == 3) {
+                ajouterArc(tab[0], tab[1], Double.parseDouble(tab[2]));
+            }
         }
         br.close();
-
-        //utilise ajouterArc pour construire le graphe
-        for (String l : lignes) {
-            String[] tab = l.split("/t");
-            ajouterArc(tab[0], tab[1], Double.parseDouble(tab[2]));
-        }
-
     }
 
 
@@ -104,7 +103,7 @@ public class GrapheListe implements Graphe{
 
     public String toGraphviz(){
 
-        String aff = "diagramme { \n";
+        String aff = "digraph X { \n";
 
         for (int i = 0; i < ensNoeuds.size(); i++){
 

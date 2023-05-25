@@ -88,4 +88,21 @@ public class Valeur {
 
     }
 
+    public List<String> calculerChemin(String destination){
+        List<String> chemin = new ArrayList<>();
+        String noeud = destination;
+        while (noeud != null){
+            chemin.add(noeud);
+            noeud = this.getParent(noeud);
+        }
+
+        for (int i = 0; i < chemin.size()/2; i++) {
+            String tmp = chemin.get(i);
+            chemin.set(i, chemin.get(chemin.size()-1-i));
+            chemin.set(chemin.size()-1-i, tmp);
+        }
+        
+        return chemin;
+    }
+
 }

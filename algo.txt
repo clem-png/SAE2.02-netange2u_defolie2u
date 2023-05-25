@@ -1,0 +1,24 @@
+Algorithme pointFixe(Graphe G, Noeud A) :
+
+    Pour chaque noeud X dans G
+	X.distance <- Infini
+	X.parent <- NULL
+    Fin pour
+
+	A.distance <- 0
+
+    Tant que g converge
+	pour chaque noeud X dans G faire
+		pour chaque noeud N adjacent à X
+		    coutNoeudCourant <- L[X].getCout() + L[N].getCout()
+			destination <- L[N].getDest();
+			Si nouveauCout > CoutNoeudCourant faire
+				N.distance <- nouveauCout
+				N.parent <- X
+			FSi
+		Fpour
+	Fpour
+     FTant
+
+Fin Algorithme
+
