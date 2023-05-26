@@ -43,7 +43,7 @@ public class BellmonFord implements Algorithme{
                         index ++;
 
                         //afficher la valeur de chaque noeud
-                        //System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
+                        System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                     }
                 }
             }

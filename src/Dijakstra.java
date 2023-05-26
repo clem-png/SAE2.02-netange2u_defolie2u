@@ -69,7 +69,7 @@ public class Dijakstra implements Algorithme {
                     v.setValeur(dest, DEstimation);
                     v.setParent(dest, u);
                     index ++;
-                    //System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
+                    System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                 }
 
 
