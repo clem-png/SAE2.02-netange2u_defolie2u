@@ -3,6 +3,34 @@ import java.util.List;
 
 public class Dijakstra implements Algorithme {
 
+
+    /*
+    Entr´ees :
+    G un graphe orient´e avec une pond´eration (poids) positive des arcs
+    A un sommet (d´epart) de G
+    D´ebut
+    Q <- {} // utilisation d’une liste de noeuds `a traiter
+    Pour chaque sommet v de G faire
+    v.distance <- Infini
+    v.parent <- Ind´efini
+    Q <- Q U {v} // ajouter le sommet v `a la liste Q
+    Fin Pour
+    A.distance <- 0
+    Tant que Q est un ensemble non vide faire
+    u <- un sommet de Q telle que u.distance est minimale
+    Q <- Q \ {u} // enlever le sommet u de la liste Q
+    Pour chaque sommet v de Q tel que l’arc (u,v) existe faire
+    D <- u.distance + poids(u,v)
+    Si D < v.distance
+    Alors v.distance <- D
+    v.parent <- u
+    Fin Si
+    Fin Pour
+    Fin Tant que
+    Fin
+
+     */
+
     /**
      * Permet de résoudre le problème du plus court chemin
      * @param g un graphe
@@ -10,10 +38,10 @@ public class Dijakstra implements Algorithme {
      * @return v un objet valeur
      */
 
+
     public Valeur resoudre(Graphe g, String depart) {
 
         //calculer le temps d'exécution
-        long startTime = System.nanoTime();
 
         List<String> noeuds = new ArrayList<String>();
 
@@ -68,19 +96,13 @@ public class Dijakstra implements Algorithme {
                     vprec = v;
                     v.setValeur(dest, DEstimation);
                     v.setParent(dest, u);
-                    index ++;
-                    System.out.println("itération : "+index);
                     System.out.println(v.toString());
                 }
 
 
             }
         }
-        System.out.println("nombre d'itération : "+index);
-        //calculer le temps d'exécution
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println("temps d'exécution : "+duration/1000000+" milisecondes");
         return v;
     }
+
 }

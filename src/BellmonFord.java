@@ -3,6 +3,36 @@ import java.util.List;
 
 public class BellmonFord implements Algorithme{
 
+    /*
+    * Algorithme de Bellmon-Ford
+    *
+    * Algorithme pointFixe(Graphe G, Noeud A) :
+
+    Pour chaque noeud X dans G
+	X.distance <- Infini
+	X.parent <- NULL
+    Fin pour
+
+	A.distance <- 0
+
+    Tant que g converge
+	pour chaque noeud X dans G faire
+		pour chaque noeud N adjacent à X
+		    coutNoeudCourant <- L[X].getCout() + L[N].getCout()
+			destination <- L[N].getDest();
+			Si nouveauCout > CoutNoeudCourant faire
+				N.distance <- nouveauCout
+				N.parent <- X
+			FSi
+		Fpour
+	Fpour
+     FTant
+
+Fin Algorithme
+
+
+     */
+
 
     /**
      * Permet de résoudre le problème du plus court chemin
@@ -26,7 +56,6 @@ public class BellmonFord implements Algorithme{
 
         Valeur vprec = null; //valeur précédente
 
-        int index = 0; //nombre d'itération
         //tant que v change
         while (v != vprec) {
 
@@ -42,23 +71,11 @@ public class BellmonFord implements Algorithme{
                         vprec = v; //valeur précédente
                         v.setValeur(dest, DEstimation);
                         v.setParent(dest, n);
-                        index ++;
-
-                        //afficher la valeur de chaque noeud
-                        System.out.println("itération : "+index);
-                        //System.out.println(v.toString());
+                        System.out.println(v.toString());
                     }
                 }
             }
         }
-
-        System.out.println("nombre d'itération : "+index);
-
-        //calculer le temps d'exécution
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-
-        System.out.println("temps d'exécution : "+duration/1000000+" millisecondes");
 
         return v;
     }
