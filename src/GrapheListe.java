@@ -212,4 +212,11 @@ public class GrapheListe implements Graphe{
 
     }
 
+    public List<String> getEnsNom() {
+        return ensNom;
+    }
+
+    public List<Noeud> getEnsNoeuds() {
+        return ensNoeuds;
+    }
 }
