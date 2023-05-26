@@ -23,9 +23,11 @@ public class main  {
         Valeur v = b.resoudre(g,"A");
         System.out.println(v.toString());
         System.out.println(v.calculerChemin("E"));
+        System.out.println(g.GenererGraphe(10).toGraphviz());
         */
 
-        try {
+
+       try {
 
             GrapheListe g2 = new GrapheListe("graphe/Graphe1.txt");
             //System.out.println(g2.toString());

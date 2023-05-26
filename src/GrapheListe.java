@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 //génere la javadoc
@@ -170,6 +171,45 @@ public class GrapheListe implements Graphe{
             }
         }
         return aff += "\n}";
+    }
+
+    /**
+     * Methode qui genere un graphe avec un nombre de noeud souhaiter et un nombre d'arc aleatoire
+     * @param NbNoeud Le nombre de noeud souhaiter
+     * @return Retourne un objet GrapheListe
+     */
+    public GrapheListe GenererGraphe(int NbNoeud) {
+        //On commence par creer un graphe vide et on ajoute le nombre de noeud dans les listes
+        GrapheListe g = new GrapheListe();
+
+        for (int i = 0; i < NbNoeud; i++) {
+            String nomNoeud = "Noeud" + i;
+            g.ensNom.add(nomNoeud);
+            g.ensNoeuds.add(new Noeud(nomNoeud));
+        }
+        //Je commence par créé un arc linéaire entre tout les noeuds (Noeud0 -> Noeud1, Noeud1 -> Noeud2, etc...) avec un cout aleatoire
+        for (int k = 0; k < NbNoeud; k++) {
+
+            Random r = new Random();
+            int cout = r.nextInt(100);
+            int prochainNoeud = +k + 1;
+            if (prochainNoeud != k) {
+                g.ajouterArc("Noeud" + k, "Noeud" + prochainNoeud, cout);
+            }
+        }
+        //Je créé ensuite des arcs aléatoire entre les noeuds
+        for (int a = 0; a < NbNoeud*3; a++) {
+            Random r = new Random();
+
+            int coutAlea = r.nextInt(100);
+            int premierNoeud = r.nextInt(NbNoeud);
+            int NoeudSuivant = r.nextInt(NbNoeud);
+            if (premierNoeud != NoeudSuivant && !g.ensNoeuds.get(premierNoeud).getAdj().contains(NoeudSuivant)) {
+                g.ajouterArc("Noeud" + premierNoeud, "Noeud" + NoeudSuivant, coutAlea);
+            }
+        }
+        return g;
+
     }
 
 }
