@@ -43,7 +43,8 @@ public class GrapheListe implements Graphe{
 
     @Override
     public List<Arc> suivants(String n) {
-        for(Noeud noeud : ensNoeuds){
+        for(int i = 0 ; i < ensNoeuds.size(); i++){
+            Noeud noeud = ensNoeuds.get(i);
             if(n.equals(noeud.getNom())){
                 return noeud.getAdj();
             }

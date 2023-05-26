@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dijakstra {
+public class Dijakstra implements Algorithme {
 
 
     public Valeur resoudre(Graphe g, String depart) {
@@ -22,6 +22,8 @@ public class Dijakstra {
 
         int indice = 0;
         Valeur vprec = null;
+        int index = 0;
+
         while (noeuds.size()>0){
             String u = null;
             double minDistance = Double.MAX_VALUE;
@@ -43,6 +45,7 @@ public class Dijakstra {
             noeuds.remove(u);
 
             for (int i = 0; i < g.suivants(u).size(); i++) {
+
                 Arc arc = g.suivants(u).get(i);
                 double DEstimation = v.getValeur(u) + arc.getCout();
                 String dest = arc.getDest();
@@ -50,7 +53,11 @@ public class Dijakstra {
                     vprec = v;
                     v.setValeur(dest, DEstimation);
                     v.setParent(dest, u);
+                    index ++;
+                    System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                 }
+
+
             }
         }
 

@@ -15,24 +15,36 @@ public class main  {
         g.ajouterArc("D","B", 23);
         g.ajouterArc("E","D", 43);
 
-
+        /*
         System.out.println(g.toString());
         System.out.println(g.toGraphviz());
-        //BellmonFord b = new BellmonFord();
-        Dijakstra b = new Dijakstra();
+        BellmonFord b = new BellmonFord();
+        //Dijakstra b = new Dijakstra();
         Valeur v = b.resoudre(g,"A");
         System.out.println(v.toString());
         System.out.println(v.calculerChemin("E"));
-        /*
+        */
+
         try {
 
             GrapheListe g2 = new GrapheListe("graphe/Graphe1.txt");
             //System.out.println(g2.toString());
-            System.out.println(g2.toGraphviz());
+            //System.out.println(g2.toGraphviz());
+
+            System.out.println("\n \t---BellmonFord--- \n");
+
             BellmonFord b2 = new BellmonFord();
-            Valeur v2 = b2.resoudre(g2,"A");
-            System.out.println(v2.toString());
-            System.out.println(v2.calculerChemin("2"));
+            Valeur v2 = b2.resoudre(g2,"1");
+            //System.out.println(v2.toString());
+            //System.out.println(v2.calculerChemin("10"));
+
+            System.out.println("\n \t---Dijakstra--- \n");
+
+            Dijakstra b3 = new Dijakstra();
+            Valeur v3 = b3.resoudre(g2,"1");
+            //System.out.println(v3.toString());
+            //System.out.println(v3.calculerChemin("10"));
+
 
 
         }
@@ -42,8 +54,6 @@ public class main  {
         catch (IOException e){
             System.out.println(e.getMessage());
         }
-        */
-
 
 
 

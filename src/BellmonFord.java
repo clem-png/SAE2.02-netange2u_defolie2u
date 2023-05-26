@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BellmonFord {
+public class BellmonFord implements Algorithme{
 
     public Valeur resoudre(Graphe g, String depart){
         //point fixe utiliser la classe Valeur
@@ -14,7 +14,7 @@ public class BellmonFord {
 
         Valeur vprec = null;
 
-
+        int index = 0;
         //tant que v change
         while (v != vprec) {
 
@@ -28,6 +28,8 @@ public class BellmonFord {
                         vprec = v;
                         v.setValeur(dest, DEstimation);
                         v.setParent(dest, n);
+                        index ++;
+                        System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                     }
                 }
             }
