@@ -36,14 +36,14 @@ public class main  {
             System.out.println("\n \t---BellmonFord--- \n");
 
             BellmonFord b2 = new BellmonFord();
-            Valeur v2 = b2.resoudre(g2,"1");
+            Valeur v2 = b2.resoudre(g2,"905");
             //System.out.println(v2.toString());
             //System.out.println(v2.calculerChemin("10"));
 
             System.out.println("\n \t---Dijakstra--- \n");
 
             Dijakstra b3 = new Dijakstra();
-            Valeur v3 = b3.resoudre(g2,"1");
+            Valeur v3 = b3.resoudre(g2,"905");
             //System.out.println(v3.toString());
             //System.out.println(v3.calculerChemin("10"));
 

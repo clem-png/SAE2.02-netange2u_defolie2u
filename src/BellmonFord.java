@@ -12,6 +12,10 @@ public class BellmonFord implements Algorithme{
      */
 
     public Valeur resoudre(Graphe g, String depart){
+
+        //calculer le temps d'exécution
+        long startTime = System.nanoTime();
+
         //point fixe utiliser la classe Valeur
         Valeur v = new Valeur(); //valeur de chaque noeud
         for (String noeud : g.listeNoeuds()) { //initialisation de la valeur de chaque noeud
@@ -37,12 +41,22 @@ public class BellmonFord implements Algorithme{
                         v.setValeur(dest, DEstimation);
                         v.setParent(dest, n);
                         index ++;
-                        System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
+
+                        //afficher la valeur de chaque noeud
+                        //System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                     }
                 }
             }
         }
+
         System.out.println("nombre d'itération : "+index);
+
+        //calculer le temps d'exécution
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+
+        System.out.println("temps d'exécution : "+duration/1000000+" milisecondes");
+
         return v;
     }
 }

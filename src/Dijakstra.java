@@ -12,6 +12,9 @@ public class Dijakstra implements Algorithme {
 
     public Valeur resoudre(Graphe g, String depart) {
 
+        //calculer le temps d'exécution
+        long startTime = System.nanoTime();
+
         List<String> noeuds = new ArrayList<String>();
 
         noeuds.add(depart); //ajouter le noeud de départ à la liste des noeuds
@@ -66,13 +69,17 @@ public class Dijakstra implements Algorithme {
                     v.setValeur(dest, DEstimation);
                     v.setParent(dest, u);
                     index ++;
-                    System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
+                    //System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
                 }
 
 
             }
         }
         System.out.println("nombre d'itération : "+index);
+        //calculer le temps d'exécution
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("temps d'exécution : "+duration/1000000+" milisecondes");
         return v;
     }
 }
