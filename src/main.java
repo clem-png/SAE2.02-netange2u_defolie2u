@@ -26,10 +26,10 @@ public class main  {
         System.out.println(g.GenererGraphe(10).toGraphviz());
         */
 
-
+        /*
        try {
 
-            GrapheListe g2 = new GrapheListe("graphe/Graphe705.txt");
+            GrapheListe g2 = new GrapheListe("graphe/Graphe1.txt");
             //System.out.println(g2.toString());
             //System.out.println(g2.toGraphviz());
 
@@ -47,6 +47,7 @@ public class main  {
             //System.out.println(v3.toString());
             //System.out.println(v3.calculerChemin("10"));
 
+           //tester tous les fichiers
 
 
         }
@@ -56,6 +57,29 @@ public class main  {
         catch (IOException e){
             System.out.println(e.getMessage());
         }
+        */
+
+
+           GrapheListe d0 = new GrapheListe();
+           GrapheListe d1 = d0.GenererGraphe(5);
+           GrapheListe d2 = d0.GenererGraphe(10);
+           GrapheListe d3 = d0.GenererGraphe(20);
+
+           Valeur v1 = new Valeur();
+           Valeur v2 = new Valeur();
+           Valeur v3 = new Valeur();
+
+            Dijakstra b3 = new Dijakstra();
+            BellmonFord b4 = new BellmonFord();
+            //v1 = b3.resoudre(d1,"Noeud0");
+            v1 = b4.resoudre(d1,"Noeud1");
+            //v2 = b3.resoudre(d2,"Noeud0");
+            v2 = b4.resoudre(d2,"Noeud1");
+            //v3 = b3.resoudre(d3,"Noeud0");
+            v3 = b4.resoudre(d3,"Noeud1");
+
+            System.out.println(d1.toGraphviz());
+
 
 
 
