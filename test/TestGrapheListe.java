@@ -146,8 +146,6 @@ public class TestGrapheListe {
 
     /**
      * Test de la méthode GenererGraphe()
-     *
-     * @throws IOException
      */
     @Test
     public void test_GenereGraphe() {
@@ -160,8 +158,6 @@ public class TestGrapheListe {
     /**
      * Test de la méthode ajouterArc() si un arc est ajouté
      * alors qu'il existe deja
-     *
-     * @throws IOException
      */
     @Test
     public void test_ArcDejaExistant() {

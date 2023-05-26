@@ -211,10 +211,18 @@ public class GrapheListe implements Graphe{
 
     }
 
+    /**
+     *Getter de la liste des noeuds
+     * @return ensNom la liste des nom des noeuds
+     */
     public List<String> getEnsNom() {
         return ensNom;
     }
 
+    /**
+     *Getter de la liste des noeuds
+     * @return ensNoeuds la liste des noeuds
+     */
     public List<Noeud> getEnsNoeuds() {
         return ensNoeuds;
     }

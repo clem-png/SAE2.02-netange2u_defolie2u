@@ -88,6 +88,13 @@ public class Valeur {
 
     }
 
+    /**
+     * retourne le chemin pour aller de la source a la destination
+     * - utilise getParent
+     *
+     * @param destination le noeud destination
+     * @return le chemin sous forme de liste de noeuds
+     */
     public List<String> calculerChemin(String destination){
         List<String> chemin = new ArrayList<>();
         String noeud = destination;
