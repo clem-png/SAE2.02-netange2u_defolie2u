@@ -3,14 +3,14 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestGrapheListe {
 
 
     /**
      * Test de la méthode toGraphviz pour le Graphe1.txt
+     *
      * @throws IOException
      */
     @Test
@@ -62,10 +62,10 @@ public class TestGrapheListe {
     }
 
     /**
-     *Test du constructeur vide
+     * Test du constructeur vide
      */
     @Test
-    public void test_GrapheConstructeurVide(){
+    public void test_GrapheConstructeurVide() {
         GrapheListe g = new GrapheListe();
         assertEquals(0, g.getEnsNom().size());
         assertEquals(0, g.getEnsNoeuds().size());
@@ -73,6 +73,7 @@ public class TestGrapheListe {
 
     /**
      * Test du constructeur avec un fichier
+     *
      * @throws IOException
      */
     @Test
@@ -87,7 +88,7 @@ public class TestGrapheListe {
      * et en vérifiant si la liste retournée contient les noms des nœuds correspondants.
      */
     @Test
-    public void test_GrapheListe_listeNoeuds(){
+    public void test_GrapheListe_listeNoeuds() {
         GrapheListe graphe = new GrapheListe();
 
         graphe.ajouterArc("A", "B", 1.0);
@@ -107,7 +108,7 @@ public class TestGrapheListe {
      * Test de la méthode suivants()
      */
     @Test
-    public void test_Suivant(){
+    public void test_Suivant() {
         GrapheListe graphe = new GrapheListe();
 
         graphe.ajouterArc("A", "B", 1.0);
@@ -128,10 +129,12 @@ public class TestGrapheListe {
         assertEquals(2.0, deuxiemeArc.getCout(), 0.001);
     }
 
-    /** Test de la méthode ajouterArc()
+    /**
+     * Test de la méthode ajouterArc()
+     *
      * @throws IOException
      */
-   @Test
+    @Test
     public void test_ajouterArc() throws IOException {
         GrapheListe graphe = new GrapheListe("SAE2.02-netange2u_defolie2u/graphe/Graphe1.txt");
 
@@ -141,6 +144,42 @@ public class TestGrapheListe {
         assertEquals(11, graphe.getEnsNoeuds().size());
     }
 
+    /**
+     * Test de la méthode GenererGraphe()
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test_GenereGraphe() {
+        GrapheListe graphe = new GrapheListe();
+        GrapheListe grapheGenere = graphe.GenererGraphe(10);
+        assertEquals(11, grapheGenere.getEnsNom().size());
+        assertEquals(11, grapheGenere.getEnsNoeuds().size());
+    }
+
+    /**
+     * Test de la méthode ajouterArc() si un arc est ajouté
+     * alors qu'il existe deja
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test_ArcDejaExistant() {
+        //Test si on ajoute un arc qui existe déjà
+        GrapheListe g = new GrapheListe();
+        g.ajouterArc("A", "B", 1);
+        g.ajouterArc("A", "C", 2);
+        g.ajouterArc("A", "C", 50);
+        g.ajouterArc("B", "C", 3);
+
+        assertEquals(2, g.listeNoeuds().size());
+        assertTrue(g.listeNoeuds().contains("A"));
+        assertTrue(g.listeNoeuds().contains("B"));
+
+        assertEquals(3, g.suivants("A").size());
+        assertEquals(1, g.suivants("B").size());
+
+    }
 
 
 }
