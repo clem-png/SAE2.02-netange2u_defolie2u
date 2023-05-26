@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestGrapheListe {
 
@@ -140,6 +140,40 @@ public class TestGrapheListe {
         assertEquals(11, graphe.getEnsNom().size());
         assertEquals(11, graphe.getEnsNoeuds().size());
     }
+
+    @Test
+    public void test_GenereGraphe(){
+        GrapheListe graphe = new GrapheListe();
+        GrapheListe grapheGenere = graphe.GenererGraphe(10);
+        assertEquals(11, grapheGenere.getEnsNom().size());
+        assertEquals(11, grapheGenere.getEnsNoeuds().size());
+    }
+
+    @Test
+    public void test_AjouterArc_surNoeudInexistant(){
+        GrapheListe graphe = new GrapheListe();
+        graphe.ajouterArc("A", "B", 1.0);
+        assertEquals(1, graphe.getEnsNom().size());
+        assertEquals(1, graphe.getEnsNoeuds().size());
+    }
+
+    // A compléter
+    @Test
+    public void test_AjouterArc_surNoeudExistant(){
+        GrapheListe graphe = new GrapheListe();
+
+        graphe.ajouterArc("A", "B", 1.0);
+        graphe.ajouterArc("A", "B", 2.0);
+
+       // assertTrue(graphe.listeNoeuds().contains("A"));
+
+        //assertTrue(graphe.listeNoeuds().contains("B"));
+
+        List<Arc> suivants = graphe.suivants("A");
+        assertEquals(1, suivants.size());
+   }
+
+
 
 
 
