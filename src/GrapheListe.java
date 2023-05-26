@@ -182,7 +182,7 @@ public class GrapheListe implements Graphe{
         //On commence par creer un graphe vide et on ajoute le nombre de noeud dans les listes
         GrapheListe g = new GrapheListe();
 
-        for (int i = 0; i < NbNoeud; i++) {
+        for (int i = 1; i < NbNoeud+1; i++) {
             String nomNoeud = "Noeud" + i;
             g.ensNom.add(nomNoeud);
             g.ensNoeuds.add(new Noeud(nomNoeud));
@@ -198,7 +198,7 @@ public class GrapheListe implements Graphe{
             }
         }
         //Je créé ensuite des arcs aléatoire entre les noeuds
-        for (int a = 0; a < NbNoeud*3; a++) {
+        for (int a = 1; a < NbNoeud*3; a++) {
             Random r = new Random();
 
             int coutAlea = r.nextInt(100);

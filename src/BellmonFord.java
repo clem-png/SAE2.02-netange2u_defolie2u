@@ -33,9 +33,11 @@ public class BellmonFord implements Algorithme{
             for (int i = 0; i < g.listeNoeuds().size(); i++) {  //pour chaque noeud
                 String n = g.listeNoeuds().get(i);
                 for (int j = 0; j< g.suivants(n).size(); j++) { //pour chaque arc sortant
+                    //System.out.println("noeud : "+n);
                     Arc arc = g.suivants(n).get(j); //arc sortant
                     double DEstimation = v.getValeur(n) + arc.getCout(); //valeur de n + cout de l'arc
                     String dest= arc.getDest();
+                    //System.out.println("destination : " + dest);
                     if (DEstimation < v.getValeur(dest)) { //si la valeur de dest est plus grande que la valeur de n + le cout de l'arc
                         vprec = v; //valeur précédente
                         v.setValeur(dest, DEstimation);
@@ -43,7 +45,8 @@ public class BellmonFord implements Algorithme{
                         index ++;
 
                         //afficher la valeur de chaque noeud
-                        System.out.println(index + ". valeur de " + dest + " est " + v.getValeur(dest));
+                        System.out.println("itération : "+index);
+                        //System.out.println(v.toString());
                     }
                 }
             }
@@ -55,7 +58,7 @@ public class BellmonFord implements Algorithme{
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
 
-        System.out.println("temps d'exécution : "+duration/1000000+" milisecondes");
+        System.out.println("temps d'exécution : "+duration/1000000+" millisecondes");
 
         return v;
     }
