@@ -4,17 +4,43 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//génere la javadoc
+
+
 public class GrapheListe implements Graphe{
+
+    //attributs
+
+    /**
+     * ensemble des noms des noeuds
+     */
 
     private List<String> ensNom;
 
+    /**
+     * ensemble des noeuds
+     */
+
     private List<Noeud> ensNoeuds;
+
+
+    //constructeurs
+
+    /**
+     * constructeur par défaut
+     */
 
     public GrapheListe (){
         ensNom = new ArrayList<String>();
         ensNoeuds = new ArrayList<Noeud>();
     }
 
+    /**
+     * constructeur à partir d'un fichier
+     * @param nomFichier
+     * @throws IOException
+     */
     public GrapheListe(String nomFichier) throws IOException {
 
         ensNom = new ArrayList<String>();
@@ -31,6 +57,11 @@ public class GrapheListe implements Graphe{
         br.close();
     }
 
+    /**
+     * constructeur à partir d'un graphe
+     * @return noeuds les noeuds du graphe
+     */
+
 
     @Override
     public List<String> listeNoeuds() {
@@ -40,6 +71,13 @@ public class GrapheListe implements Graphe{
         }
         return noeuds;
     }
+
+    /**
+     * retourne les noeuds suivants
+     *
+     * @param n le nom du noeud
+     * @return les noeuds suivants
+     */
 
     @Override
     public List<Arc> suivants(String n) {
@@ -52,7 +90,13 @@ public class GrapheListe implements Graphe{
         return null;
     }
 
-
+    /**
+     * Permet d'ajouter un arc au graphe
+     *
+     * @param depart noeud de départ
+     * @param des noeud de destination
+     * @param cout cout de l'arc
+     */
     public void ajouterArc(String depart, String des, double cout){
 
         if(this.ensNom == null){
@@ -87,6 +131,11 @@ public class GrapheListe implements Graphe{
         }
     }
 
+    /**
+     * Permet d'afficher le graphe
+     * @return aff l'affichage du graphe
+     */
+
     public String toString(){
         String aff = "graphe : ";
 
@@ -101,6 +150,11 @@ public class GrapheListe implements Graphe{
         }
         return aff;
     }
+
+    /**
+     * Permet d'afficher le graphe au format Graphviz
+     * @return aff l'affichage du graphe
+     */
 
     public String toGraphviz(){
 

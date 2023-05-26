@@ -34,7 +34,7 @@ public class BellmonFord implements Algorithme{
                 }
             }
         }
-
+        System.out.println("nombre d'itération : "+index);
         return v;
     }
 }
