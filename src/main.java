@@ -27,7 +27,7 @@ public class main  {
         */
 
         /*
-       try {
+        try {
 
             GrapheListe g2 = new GrapheListe("graphe/Graphe1.txt");
             //System.out.println(g2.toString());
